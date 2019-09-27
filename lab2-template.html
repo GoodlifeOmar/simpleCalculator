@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<!-- Modify Title between these comments (Choose correct class number and substitute your username) -->
+	<title>ITMD 465/565 Lab 2 - Ohernandez4 - Simple Calculator</title>
+	<!-- Modify Title between these comments -->
+	<style type="text/css">
+		body {
+			background-color: #ddd;
+			font-family: sans-serif;
+		}
+		#main-container {
+			width: 750px;
+			background-color: white;
+			margin:0 auto;
+			text-align: center;
+			padding: 10px;
+		}
+		#calculator-wrapper #input-wrapper {
+			margin: 40px 0 20px;
+		}
+		#calculator-wrapper #input-wrapper label {
+			font-size: 18px;
+			margin: 0 4px;
+			font-style: italic;
+		}
+		#calculator-wrapper #input-wrapper input {
+			font-size: 20px;
+			padding: 4px;
+			border: 2px solid #bbb;
+			background-color: #eee;
+		}
+		#calculator-wrapper #button-wrapper {
+			margin: 20px 0;
+		}
+		#calculator-wrapper #button-wrapper button {
+			font-size: 20px;
+			margin: 0 5px;
+		}
+		#results {
+			margin: 20px;
+			background-color: #eee;
+			border: 2px solid #bbb;
+			font-size: 24px;
+			padding: 14px;
+			overflow-x: auto;
+			min-height: 25px;
+		}
+	</style>
+</head>
+<body>
+	<div id="main-container">
+		<!-- Modify headlines between these comments (Choose correct class number and substitute Name and Email) -->
+		<h1>ITMD 465/565 - Lab 2 - Simple Calculator</h1>
+		<h2>Omar Hernandez - Ohernandez4@hawk.iit.edu</h2>
+		<!-- Modify headlines between these comments -->
+		<div id="calculator-wrapper">
+			<div id="input-wrapper">
+				<label>Value 1: <input type="text" name="val1" id="val1"></label>
+				<label>Value 2: <input type="text" name="val2" id="val2"></label>
+			</div>
+			<div id="button-wrapper">
+				<button id="addBtn">Add</button>
+				<button id="subBtn">Subtract</button>
+				<button id="multBtn">Multiply</button>
+				<button id="divBtn">Divide</button>
+				<button id="resetBtn">Reset</button>
+			</div>
+			<div id="results"></div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		// Begin JavaScript Code Here - Do not put JavaScript outside these comments.
+		
+		var plusButton = document.getElementById('addBtn');
+		var minusButton = document.getElementById('subBtn');
+		var multiplyButton = document.getElementById('multBtn');
+		var divideButton = document.getElementById('divBtn');
+		var resetButton = document.getElementById('resetBtn');
+
+		plusOperation = function () {
+				var number1 = document.getElementById("val1").value.trim();
+				var number2 = document.getElementById("val2").value.trim();
+
+				if (number1 === '' || number2 ==='') {
+					alert('Value 1 or Value 2 is empty.');
+				} else if (isNaN(Number(number1)) || isNaN(Number(number2))) {
+					alert('Value 1 or Value 2 is not a number.');
+				} else {
+					document.getElementById('results').innerHTML = Number(number1) + Number(number2);
+				}
+			}
+
+		minusOperation = function () {
+				var number1 = document.getElementById("val1").value.trim();
+				var number2 = document.getElementById("val2").value.trim();
+
+				if (number1 === '' || number2 ==='') {
+					alert('Value 1 or Value 2 is empty.');
+				} else if (isNaN(Number(number1)) || isNaN(Number(number2))) {
+					alert('Value 1 or Value 2 is not a number.');
+				} else {
+					document.getElementById('results').innerHTML = Number(number1) - Number(number2);
+				}
+			}
+
+		multiplyOperation = function () {
+				var number1 = document.getElementById("val1").value.trim();
+				var number2 = document.getElementById("val2").value.trim();
+
+				if (number1 === '' || number2 ==='') {
+					alert('Value 1 or Value 2 is empty.');
+				} else if (isNaN(Number(number1)) || isNaN(Number(number2))) {
+					alert('Value 1 or Value 2 is not a number.');
+				} else {
+					document.getElementById('results').innerHTML = Number(number1) * Number(number2);
+				}
+			}
+
+		divideOperation = function () {
+				var number1 = document.getElementById("val1").value.trim();
+				var number2 = document.getElementById("val2").value.trim();
+
+				if (number1 === '' || number2 ==='') {
+					alert('Value 1 or Value 2 is empty.');
+				} else if (isNaN(Number(number1)) || isNaN(Number(number2))) {
+					alert('Value 1 or Value 2 is not a number.');
+				} else if (Number(number2) === 0) {
+					alert('Value 2 is 0. Can not divide by 0.');
+				} else {
+					document.getElementById('results').innerHTML = Number(number1) / Number(number2);
+				}
+			}
+
+		resetOperation = function ()
+
+			{
+				document.getElementById('val1').value = "";
+            	document.getElementById('val2').value = "";
+            	document.getElementById('results').innerHTML = "";
+
+			}
+
+		// Attach Events
+		plusButton.addEventListener("click", plusOperation, false);
+		minusButton.addEventListener("click", minusOperation, false);
+		multiplyButton.addEventListener("click", multiplyOperation, false);
+		divideButton.addEventListener("click", divideOperation, false);
+		resetButton.addEventListener("click", resetOperation, false);
+
+		// End JavaScript Code Here - Do not put JavaScript outside these comments.
+	</script>
+</body>
+</html>
